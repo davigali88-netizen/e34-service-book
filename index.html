@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171a1e">
+  <meta name="description" content="Libro de servicio y manual técnico para BMW E34">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>E34 Service Book</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">E34</div><div><div class="brand-title">SERVICE BOOK</div><div class="brand-sub">CLASSIC BMW GARAGE</div></div></div>
+      <button class="icon-button" id="installBtn" hidden aria-label="Instalar aplicación" title="Instalar">↓</button>
+    </header>
+    <main>
+      <section class="view active" id="view-garage">
+        <div class="hero-card">
+          <div class="hero-copy"><div class="eyebrow">YOUR GARAGE / 01</div><h1>BMW <span>520i</span></h1><p class="hero-model">E34 · BERLINA · 1991</p><div class="engine-chip">M50B20 <i></i> 2.0 L <i></i> 150 CV</div></div>
+          <div class="car-art" aria-label="Ilustración estilizada de un BMW E34"><svg viewBox="0 0 520 220" role="img"><defs><linearGradient id="body" x1="0" x2="1"><stop stop-color="#f2f4f5"/><stop offset=".55" stop-color="#aeb5bc"/><stop offset="1" stop-color="#6f7881"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#647783"/><stop offset="1" stop-color="#202a32"/></linearGradient></defs><ellipse cx="270" cy="184" rx="220" ry="15" fill="#050607" opacity=".7"/><path d="M55 144 L74 119 Q89 105 145 99 L190 57 Q202 47 230 46 L335 49 Q354 51 371 69 L414 105 Q453 111 469 129 L477 153 L465 169 L48 169Z" fill="url(#body)" stroke="#e9edf0" stroke-width="2"/><path d="M151 98 L197 60 Q205 54 229 54 L254 55 L254 99Z" fill="url(#glass)" stroke="#303b43" stroke-width="3"/><path d="M263 55 L333 58 Q348 59 361 75 L384 101 L263 99Z" fill="url(#glass)" stroke="#303b43" stroke-width="3"/><path d="M257 54 L258 147" stroke="#69737c" stroke-width="3"/><path d="M389 105 L450 119 L464 137 L414 137Z" fill="#cbd1d5"/><path d="M62 139 L112 132 L109 151 L55 154Z" fill="#e6e8e8"/><path d="M421 141 L473 143 L469 158 L419 158Z" fill="#d7e1e5"/><path d="M140 169 A35 35 0 0 1 210 169" fill="#14181c"/><path d="M354 169 A35 35 0 0 1 424 169" fill="#14181c"/><circle cx="175" cy="169" r="23" fill="#171b20" stroke="#aab2b9" stroke-width="5"/><circle cx="389" cy="169" r="23" fill="#171b20" stroke="#aab2b9" stroke-width="5"/><circle cx="175" cy="169" r="9" fill="#8e989f"/><circle cx="389" cy="169" r="9" fill="#8e989f"/><path d="M78 119 L133 113 M436 116 L452 123" stroke="#fff" stroke-width="3" opacity=".7"/><path d="M46 158 L477 158" stroke="#5e6871" stroke-width="2"/></svg></div>
+          <div class="hero-footer"><span>CHASSIS <b> E34</b></span><span>ENGINE <b>M50B20</b></span><span>YEAR <b>1991</b></span></div>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">OVERVIEW / 02</div><h2>Estado del vehículo</h2></div><button class="text-button" data-action="edit-vehicle">Editar ficha ↗</button></div>
+        <div class="stats-grid"><article class="stat-card"><span class="stat-label">KILOMETRAJE ACTUAL</span><strong id="currentKm">—</strong><span class="stat-foot">km registrados</span></article><article class="stat-card"><span class="stat-label">INTERVENCIONES</span><strong id="serviceCount">0</strong><span class="stat-foot">en el historial</span></article><article class="stat-card"><span class="stat-label">PRÓXIMO AVISO</span><strong id="nextDue">—</strong><span class="stat-foot" id="nextDueLabel">sin recordatorios</span></article></div>
+        <div class="section-heading"><div><div class="eyebrow">QUICK ACCESS / 03</div><h2>Tu libro de servicio</h2></div></div>
+        <div class="quick-grid"><button class="quick-card" data-view="service"><span class="quick-icon">＋</span><b>Añadir intervención</b><small>Registrar mantenimiento</small></button><button class="quick-card" data-view="reminders"><span class="quick-icon">◷</span><b>Recordatorios</b><small>Próximas operaciones</small></button><button class="quick-card" data-view="manual"><span class="quick-icon">⌁</span><b>Manual técnico</b><small>Datos y especificaciones</small></button></div>
+        <p class="disclaimer">Proyecto personal independiente. No afiliado a BMW AG. Verifica siempre los datos técnicos con documentación de taller correspondiente a tu versión.</p>
+      </section>
+      <section class="view" id="view-service">
+        <div class="page-head"><div class="eyebrow">SERVICE RECORD / 04</div><h1>Libro de servicio</h1><p>Registra cada trabajo realizado en tu E34.</p></div>
+        <form id="serviceForm" class="panel form-grid">
+          <label>Operación<input name="title" required placeholder="Ej. Cambio de aceite motor"></label>
+          <label>Fecha<input name="date" type="date" required></label>
+          <label>Kilometraje (km)<input name="km" type="number" min="0" required placeholder="Ej. 185000"></label>
+          <label>Categoría<select name="category"><option>Mantenimiento</option><option>Motor</option><option>Transmisión</option><option>Frenos</option><option>Suspensión</option><option>Electricidad</option><option>Carrocería</option><option>Otro</option></select></label>
+          <label class="full">Piezas / referencias<input name="parts" placeholder="Referencia OEM, marca, viscosidad…"></label>
+          <label class="full">Notas<textarea name="notes" rows="3" placeholder="Trabajo realizado, observaciones, pares aplicados…"></textarea></label>
+          <label class="full">Coste (€)<input name="cost" type="number" min="0" step="0.01" placeholder="Opcional"></label>
+          <div class="form-actions full"><button class="primary-button" id="serviceSubmit" type="submit">Guardar intervención <span>↗</span></button><button class="secondary-button" id="cancelServiceEdit" type="button" hidden>Cancelar edición</button></div>
+        </form>
+        <div class="section-heading"><div><div class="eyebrow">HISTORY / 05</div><h2>Historial</h2></div><button class="text-button" id="exportBtn">Exportar CSV ↓</button></div>
+        <div id="historyList" class="record-list empty-state">Todavía no hay intervenciones registradas.</div>
+      </section>
+      <section class="view" id="view-reminders">
+        <div class="page-head"><div class="eyebrow">MAINTENANCE PLANNER / 06</div><h1>Recordatorios</h1><p>Programa operaciones por fecha o kilometraje.</p></div>
+        <div class="panel plan-panel"><div><b>Plan base E34</b><p>Genera recordatorios orientativos por kilometraje y tiempo. Se calculan desde el odómetro y la fecha actuales.</p></div><button class="secondary-button" id="maintenancePlanBtn" type="button">Crear plan base ↗</button></div>
+        <form id="reminderForm" class="panel form-grid">
+          <label class="full">Operación<input name="title" required placeholder="Ej. Próximo cambio de aceite"></label>
+          <label>Vencimiento (km)<input name="km" type="number" min="0" placeholder="Opcional"></label>
+          <label>Fecha límite<input name="date" type="date"></label>
+          <label class="full">Notas<input name="notes" placeholder="Especificación o referencia"></label>
+          <button class="primary-button full" type="submit">Crear recordatorio <span>＋</span></button>
+        </form>
+        <div class="section-heading"><div><div class="eyebrow">UPCOMING / 07</div><h2>Próximas operaciones</h2></div></div><p class="torque-source-note">Los avisos vencen cuando se alcanza el kilometraje o la fecha, lo que ocurra primero. El plan base se inspira en el calendario de mantenimiento Haynes para E30/E28/E34; es una pauta conservadora, no una tabla oficial específica de BMW para tu M50.</p>
+        <div id="reminderList" class="record-list empty-state">No tienes recordatorios pendientes.</div>
+      </section>
+      <section class="view" id="view-manual">
+        <div class="page-head"><div class="eyebrow">WORKSHOP DATA / 08</div><h1>Manual técnico</h1><p>Biblioteca inicial del BMW E34. Los datos se ampliarán y contrastarán por variante.</p></div>
+        <div class="warning-note"><b>Fuente</b><span>Biblioteca transcrita del catálogo BMW Tightening Torques (20/10/1997). Cada ficha conserva página, variante y notas. Comprueba siempre código de caja, versión y procedimiento antes de aplicar un par.</span></div>
+        <div class="manual-list">
+          <details open><summary>Ficha del vehículo <span>＋</span></summary><div class="spec-table"><div>Modelo<strong>BMW 520i E34</strong></div><div>Año<strong>1991</strong></div><div>Motor<strong>M50B20 · sin VANOS</strong></div><div>Cilindrada<strong>1.991 cm³</strong></div><div>Potencia<strong>110 kW / 150 CV</strong></div><div>Distribución<strong>Cadena</strong></div></div></details>
+          <details><summary>Fluidos y capacidades <span>＋</span></summary><div class="detail-placeholder">Pendiente de contrastar con el manual de taller y la configuración exacta del vehículo.</div></details>
+          <details open><summary>Pares de apriete · BMW 1997 <span id="torqueCount">—</span></summary>
+            <div class="torque-tools">
+              <input id="torqueSearch" type="search" placeholder="Buscar componente, tornillo, Nm…" aria-label="Buscar pares de apriete">
+              <select id="torqueScope" aria-label="Filtrar aplicabilidad"><option value="all">Todas las entradas</option><option value="M50">Específicos M50</option><option value="E34">Específicos E34</option><option value="general">Aplicación general (All)</option><option value="favorites">★ Favoritos</option></select>
+            </div>
+            <p class="torque-source-note">Los registros M50/E34 aparecen identificados. «General / All» reproduce la clasificación de la tabla original; no sustituye la comprobación de la variante concreta. Los pares con ángulo, tolerancia, lubricación o fijador conservan esas condiciones.</p>
+            <div id="torqueResults" class="torque-results" aria-live="polite"></div>
+            <a class="source-link" href="https://www.e34chassis.com/wp-content/uploads/2023/08/bmw_torq.pdf" target="_blank" rel="noopener">Abrir catálogo BMW original completo · PDF · 136 páginas ↗</a>
+          </details>
+          <details><summary>Referencias OEM <span>＋</span></summary><div class="detail-placeholder">Añadiremos referencias por grupo ETK, con notas de compatibilidad y sustituciones.</div></details>
+          <details><summary>Procedimientos de taller <span>＋</span></summary><div class="detail-placeholder">Procedimientos paso a paso, herramientas necesarias y advertencias.</div></details>
+        </div>
+      </section>
+      <section class="view" id="view-settings">
+        <div class="page-head"><div class="eyebrow">GARAGE SETTINGS / 09</div><h1>Ficha del vehículo</h1><p>Datos locales guardados en este dispositivo.</p></div>
+        <form id="vehicleForm" class="panel form-grid">
+          <label>Modelo<input name="model" value="BMW 520i E34"></label><label>Año<input name="year" value="1991" type="number"></label><label>Motor<input name="engine" value="M50B20"></label><label>Potencia<input name="power" value="150 CV"></label><label class="full">Kilometraje actual (km)<input name="km" type="number" min="0" placeholder="Introduce el kilometraje actual"></label><button class="primary-button full" type="submit">Guardar ficha <span>↗</span></button>
+        </form>
+        <div class="panel data-panel"><h3>Tus datos</h3><p>Los registros se guardan localmente en el navegador. Esta versión no sincroniza todavía entre dispositivos.</p><button class="secondary-button" id="backupBtn">Descargar copia de seguridad JSON ↓</button><label class="import-label">Restaurar copia JSON<input id="importFile" type="file" accept="application/json"></label></div>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="Navegación principal"><button class="nav-item active" data-view="garage"><span>⌂</span>Garaje</button><button class="nav-item" data-view="service"><span>▤</span>Servicio</button><button class="nav-item" data-view="reminders"><span>◷</span>Avisos</button><button class="nav-item" data-view="manual"><span>⌁</span>Manual</button><button class="nav-item" data-view="settings"><span>⚙</span>Ficha</button></nav>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="torques.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
