@@ -7,6 +7,7 @@ PWA responsive para el historial y la documentación de un BMW E34.
 - Mejora la lectura en móviles con tipografía ampliada y tarjetas que se adaptan a dos columnas.
 - Mantiene visible el botón «Instalar» y ofrece instrucciones alternativas si el navegador no muestra el aviso nativo.
 - Resume los costes registrados por año y categoría, reutilizando el coste opcional de cada intervención.
+- Permite abrir manuales PDF en español e inglés desde archivos elegidos en el dispositivo; no los sube ni los incluye en el sitio.
 - Permite elegir una foto propia del vehículo; se procesa y guarda solo en el almacenamiento local del navegador.
 - Mantiene los textos ya escritos en registros, el kilometraje en km y la biblioteca de pares en español.
 - Atribución de la imagen: “BMW E34 520i.jpg”, Felix Schmidt, Wikimedia Commons, CC BY-SA 3.0. Es un 520i alemán de 1992 y no necesariamente representa la unidad del usuario. La imagen original se distribuye sin modificar: https://commons.wikimedia.org/wiki/File:BMW_E34_520i.jpg
