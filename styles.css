@@ -12,3 +12,33 @@
 .hero-card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#11171bea 0%,#11171bbf 39%,#11171b20 78%),linear-gradient(0deg,#111417d9 0%,transparent 42%);pointer-events:none}.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 57%;z-index:0}.hero-copy,.hero-footer{z-index:2}.hero-footer{bottom:17px}
 .photo-credit{position:absolute;z-index:2;right:13px;top:12px;bottom:auto;padding:5px 7px;background:#11171bb8;border-radius:5px;color:#e0e7eb;text-decoration:none;font-size:8px}.photo-credit[hidden]{display:none}
 .photo-panel h3,.language-panel h3{font-size:13px;margin:0 0 8px}.photo-panel p,.language-panel p{font-size:10px;color:var(--muted);line-height:1.5}.photo-panel .import-label{margin-top:8px}.photo-panel .secondary-button{margin-top:12px}.photo-credit-note a{color:#9bc5e3}.language-panel label{display:block;color:#aeb8c0;font-size:10px;font-weight:700;margin:10px 0 6px}.language-panel select{width:100%;background:#11171b;border:1px solid #3a454e;border-radius:9px;padding:11px;color:#f1f3f4;font:inherit;font-size:12px}.secondary-button:disabled{opacity:.5;cursor:not-allowed}
+
+@media(max-width:560px){
+  .brand-title{font-size:14px}.brand-sub,.eyebrow{font-size:10px}
+  .hero-model{font-size:12px}.engine-chip{font-size:11px}
+  .hero-footer{font-size:9px;gap:10px}
+  .section-heading h2{font-size:23px}.text-button{font-size:13px}
+  .stats-grid,.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat-card,.quick-card{min-width:0}
+  .stats-grid .stat-card:last-child,.quick-grid .quick-card:last-child{grid-column:1/-1}
+  .stat-label{font-size:10px;line-height:1.35;letter-spacing:.4px}.stat-card strong{font-size:23px}.stat-foot{font-size:11px}
+  .quick-card{min-height:112px;padding:15px}.quick-card b{font-size:14px;line-height:1.35}.quick-card small{font-size:12px}
+  .disclaimer{font-size:12px}
+  .page-head p{font-size:14px}
+  .form-grid label{font-size:13px}.form-grid input,.form-grid select,.form-grid textarea{font-size:16px;min-height:46px}
+  .primary-button,.secondary-button{font-size:14px;min-height:46px}
+  .record h3{font-size:16px}.record p,.record-meta{font-size:13px}.small-action{font-size:12px;min-height:36px;padding:8px 10px}
+  .empty-state{font-size:14px}.warning-note{font-size:14px}
+  .manual-list summary{font-size:15px}.spec-table div{font-size:13px}.spec-table strong{font-size:14px}
+  .detail-placeholder,.data-panel p{font-size:14px}
+  .import-label{font-size:14px}.import-label input{font-size:13px}
+  .nav-item{font-size:12px}.toast{font-size:14px}
+  .torque-tools input,.torque-tools select{font-size:15px}
+  .torque-source-note{font-size:13px}.torque-section,.torque-foot{font-size:12px}.torque-tag{font-size:11px}
+  .torque-main h3{font-size:15px}.torque-main p{font-size:12px}.torque-main strong{font-size:16px}
+  .torque-note{font-size:12px}.source-link{font-size:13px}.reminder-status{font-size:11px}
+  .plan-panel b{font-size:15px}.plan-panel p{font-size:13px}
+  .fluid-intro,.fluid-source-note{font-size:13px}.fluid-card h3{font-size:14px}
+  .fluid-card dt{font-size:12px}.fluid-card dd{font-size:13px}
+  .photo-panel p,.language-panel p{font-size:13px}.language-panel label{font-size:13px}.language-panel select{font-size:15px}
+}
