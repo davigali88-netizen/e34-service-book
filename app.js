@@ -24,6 +24,44 @@ Object.assign(EN,{heroModel:'E34 · SALOON · 1991',torqueLanguageNote:'The inte
 Object.assign(ES,{appTitle:'Libro de servicio E34',brandTitle:'LIBRO DE SERVICIO',brandSub:'GARAJE BMW CLÁSICO',heroModel:'E34 · BERLINA · 1991',torqueLanguageNote:'La interfaz puede cambiar a inglés; las descripciones de la biblioteca de pares permanecen en español.',torqueCopied:'Par copiado',toPlan:'Por programar',photoAttribution:'BMW E34 520i (1992) · Felix Schmidt / Wikimedia Commons · CC BY-SA 3.0 ↗',genericPhotoCredit:'Foto de referencia: BMW 520i de 1992, de Felix Schmidt (Wikimedia Commons), CC BY-SA 3.0; original sin modificar.',application:'Aplicación',customPhotoAlt:'Foto propia de tu vehículo',mileageNotEntered:'un kilometraje aún no especificado',noPendingList:'No tienes recordatorios pendientes.',noReminders:'Sin recordatorios',noServiceEntries:'Todavía no hay intervenciones registradas.',saveService:'Guardar intervención',planConfirm:'Se añadirán {count} recordatorios usando como referencia {km} y la fecha de hoy. ¿Continuar?'});
 Object.assign(EN,{installFallback:'If no prompt appears, open your browser menu and choose Install app or Add to Home screen.',appInstalled:'App installed'});
 Object.assign(ES,{installFallback:'Si no aparece el aviso, abre el menú del navegador y elige Instalar aplicación o Añadir a pantalla de inicio.',appInstalled:'Aplicación instalada'});
+Object.assign(EN,{
+  fullVin:'Full 17-character VIN',vinExampleFull:'e.g. WBAHB51040BK12345',decodeVin:'Identify vehicle',copyVin:'Copy last 7',checkRealOEM:'Check on RealOEM ↗',
+  vinLookupDisclaimer:'The VIN is decoded on this device and is not sent to a service. Only its 4-character type code and last 7 characters are saved locally.',
+  vinInvalid:'Enter a valid 17-character BMW VIN (WBA or WBS prefix).',vinSaved:'VIN decoded and vehicle type saved locally',vinCopied:'Last 7 VIN characters copied',vinCopyFailed:'Could not copy the last 7 VIN characters.',
+  fluidNoVin:'Enter the full VIN to identify the E34 type and show sourced estimates.',fluidUnknownType:'The VIN format is valid, but this type code is not in the current reference table:',fluidVehicleType:'Vehicle identified',sedan:'saloon',
+  fluidOil:'Engine oil capacity',fluidCoolant:'Cooling-system capacity',fluidReportedCapacity:'Reported capacity',fluidNoSource:'No traceable capacity found for this variant.',fluidSource:'Source',
+  fluidApproxDisclaimer:'Values are estimates transcribed from secondary references, not BMW workshop data verified against this VIN. Cooling and automatic-transmission values may be total system capacities rather than service refill quantities. Check the actual gearbox label, differential, reservoir label and workshop manual before servicing.',
+  gearboxCodeSelect:'Gearbox type (read the installed gearbox label)',gearboxUnknownOption:'Not identified',gearbox520Option:'520i manual · source does not name gearbox code',gearboxAutomaticOption:'Automatic · exact gearbox not identified',gearboxResult:'Gearbox capacity',gearboxNoData:'No capacity confirmed for this selected gearbox / model.',gearboxCheckCode:'Confirm gearbox code and fluid label before filling.',
+  differentialResult:'Differential capacity',differentialNoData:'Not determined by VIN alone; identify the installed differential. Fill level and case size matter.',
+  steeringResult:'Fluid type is determined by the reservoir label (ATF/CHF); do not mix types. Quantity is not verified for this VIN.',
+  gearboxName2605:'Getrag 260/5',gearboxName2606:'Getrag 260/6',gearboxName310z:'ZF S5D 310Z',gearboxName560g:'Getrag S6S 560G',
+  typeCodeSource:'Production-code table (secondary reference)',autoAbcSource:'Model capacity data (secondary reference)',bmwGuideSource:'BMW E34 maintenance table (secondary reference)',manualScanSource:'520i fluid guide (secondary scan)',m5BoardSource:'M5 Board (owner report)'
+});
+Object.assign(ES,{
+  fullVin:'VIN completo de 17 caracteres',vinExampleFull:'Ej. WBAHB51040BK12345',decodeVin:'Identificar vehículo',copyVin:'Copiar últimos 7',checkRealOEM:'Consultar en RealOEM ↗',
+  vinLookupDisclaimer:'El VIN se decodifica en este dispositivo y no se envía a ningún servicio. Solo se guardan localmente el código de tipo de 4 caracteres y los últimos 7 caracteres.',
+  vinInvalid:'Introduce un VIN BMW válido de 17 caracteres (prefijo WBA o WBS).',vinSaved:'VIN decodificado y tipo de vehículo guardado localmente',vinCopied:'Últimos 7 caracteres del VIN copiados',vinCopyFailed:'No se pudieron copiar los últimos 7 caracteres del VIN.',
+  fluidNoVin:'Introduce el VIN completo para identificar el tipo E34 y mostrar estimaciones con fuente.',fluidUnknownType:'El formato del VIN es válido, pero este código no aparece en la tabla de referencia:',  fluidVehicleType:'Vehículo identificado',sedan:'berlina',engineOption:'Motor',gearbox:'Caja de cambios',differential:'Diferencial',powerSteering:'Dirección asistida',identification:'Identificación',fluidQuantity:'Fluido y cantidad',
+  fluidOil:'Capacidad de aceite del motor',fluidCoolant:'Capacidad del circuito de refrigeración',fluidReportedCapacity:'Capacidad publicada',fluidNoSource:'No se encontró una capacidad trazable para esta variante.',fluidSource:'Fuente',
+  fluidApproxDisclaimer:'Valores orientativos transcritos de referencias secundarias; no son datos BMW de taller contrastados con este VIN. Las capacidades de refrigeración y de caja automática pueden ser capacidades totales, no cantidades de reposición en servicio. Antes de intervenir, comprueba la etiqueta real de la caja, el diferencial, el depósito y el manual de taller.',
+  gearboxCodeSelect:'Tipo de caja (lee la etiqueta de la caja instalada)',gearboxUnknownOption:'Sin identificar',gearbox520Option:'520i manual · la fuente no indica el código de caja',gearboxAutomaticOption:'Automática · caja exacta sin identificar',gearboxResult:'Capacidad de caja',gearboxNoData:'No hay capacidad confirmada para esta caja / modelo.',gearboxCheckCode:'Confirma el código de caja y la etiqueta del fluido antes de llenar.',
+  differentialResult:'Capacidad del diferencial',differentialNoData:'El VIN no permite determinarla; identifica el diferencial instalado. Importan el nivel de llenado y el tamaño de carcasa.',
+  steeringResult:'El fluido lo determina la etiqueta del depósito (ATF/CHF); no mezcles tipos. La cantidad no está verificada para este VIN.',
+  gearboxName2605:'Getrag 260/5',gearboxName2606:'Getrag 260/6',gearboxName310z:'ZF S5D 310Z',gearboxName560g:'Getrag S6S 560G',
+  typeCodeSource:'Tabla de códigos de producción (referencia secundaria)',autoAbcSource:'Capacidades por modelo (referencia secundaria)',bmwGuideSource:'Tabla de mantenimiento E34 (referencia secundaria)',manualScanSource:'Guía de fluidos 520i (escaneo secundario)',m5BoardSource:'M5 Board (informe de propietario)'
+});
+Object.assign(EN,{
+  videoNav:'Video',tributeEyebrow:'E34 TRIBUTE / 10',videoTitle:'1988 BMW 5 Series commercial',
+  videoIntro:'A period BMW 5 Series TV commercial, included as a tribute to the E34 launch era.',
+  videoNotAvailable:'Your browser cannot play this MP4 video.',
+  videoCredit:'Video supplied by the user and bundled with the app for local playback.'
+});
+Object.assign(ES,{
+  videoNav:'Vídeo',tributeEyebrow:'HOMENAJE E34 / 10',videoTitle:'Anuncio BMW Serie 5 de 1988',
+  videoIntro:'Anuncio televisivo de época de la Serie 5 de BMW, incluido como homenaje al lanzamiento de la E34.',
+  videoNotAvailable:'Tu navegador no puede reproducir este vídeo MP4.',
+  videoCredit:'Vídeo aportado por el usuario e incluido en la app para reproducirlo localmente.'
+});
 function t(key){const catalog=data.language==='en'?EN:ES;return catalog[key]||key}
 function applyLanguage(){
   const language=data.language==='en'?'en':'es';
@@ -84,11 +122,21 @@ function renderExpenses(){
 }
 document.getElementById('expenseYear').addEventListener('change',renderExpenses);
 const fluidVinForm=document.getElementById('fluidVinForm');
-const fluidVinInput=fluidVinForm.elements.vinLast7;
-fluidVinInput.addEventListener('input',()=>{fluidVinInput.value=fluidVinInput.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,7);fluidVinInput.setCustomValidity('')});
+const fluidVinInput=fluidVinForm.elements.fullVin;
+fluidVinInput.addEventListener('input',()=>{fluidVinInput.value=fluidVinInput.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,17);fluidVinInput.setCustomValidity('')});
 fluidVinInput.addEventListener('invalid',()=>fluidVinInput.setCustomValidity(t('vinInvalid')));
-fluidVinForm.addEventListener('submit',e=>{e.preventDefault();data.vehicle.vinLast7=fluidVinInput.value.trim().toUpperCase();save();toast(t('vinSaved'))});
+fluidVinForm.addEventListener('submit',e=>{
+  e.preventDefault();
+  const decoded=window.E34_FLUIDS.decodeVin(fluidVinInput.value);
+  if(!decoded){fluidVinInput.setCustomValidity(t('vinInvalid'));fluidVinInput.reportValidity();return}
+  data.vehicle.vinTypeCode=decoded.typeCode;
+  data.vehicle.vinLast7=decoded.lastSeven;
+  fluidVinInput.value='';
+  save();
+  toast(t('vinSaved'));
+});
 document.getElementById('copyVinLast7').addEventListener('click',async()=>{if(!data.vehicle.vinLast7)return;try{await navigator.clipboard.writeText(data.vehicle.vinLast7);toast(t('vinCopied'))}catch{toast(t('vinCopyFailed'))}});
+document.getElementById('fluidGearbox').addEventListener('change',renderFluids);
 document.getElementById('maintenancePlanBtn').addEventListener('click',()=>{
   const currentKm=Number(data.vehicle.km)||0;
   const today=new Date();
@@ -137,12 +185,73 @@ function renderTorques(){
 torqueSearch?.addEventListener('input',renderTorques);
 torqueScope?.addEventListener('change',renderTorques);
 
+function fluidSourceLinks(urls=[]){
+  return urls.map(url=>{
+    const sourceName=url.includes('bimmerarchive')?t('typeCodeSource'):url.includes('auto-abc')?t('autoAbcSource'):url.includes('bmwguide')?t('bmwGuideSource'):url.includes('scribd')?t('manualScanSource'):t('m5BoardSource');
+    return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(sourceName)} ↗</a>`;
+  }).join(' · ');
+}
+function fluidRow(label,value,sources=[]){
+  return `<div><dt>${esc(label)}</dt><dd>${esc(value)}${sources.length?`<br>${fluidSourceLinks(sources)}`:''}</dd></div>`;
+}
+function fluidCard(title,rows){
+  return `<article class="fluid-card"><h3>${esc(title)}</h3><dl>${rows.join('')}</dl></article>`;
+}
+function renderFluids(){
+  const result=document.getElementById('fluidVehicleResult');
+  const grid=document.getElementById('fluidGrid');
+  if(!result||!grid)return;
+  const typeCode=data.vehicle.vinTypeCode;
+  if(!typeCode){
+    result.textContent=t('fluidNoVin');
+    grid.innerHTML='';
+    return;
+  }
+  const vehicle=window.E34_FLUIDS.typeCodes[typeCode];
+  if(!vehicle){
+    result.textContent=`${t('fluidUnknownType')} ${typeCode}`;
+  }else{
+    result.textContent=`${t('fluidVehicleType')}: ${vehicle.model} E34 ${t('sedan')} · ${vehicle.engine} · Type ${typeCode}`;
+  }
+  const engineRows=[
+    fluidRow(t('fluidOil'),vehicle?.oil?`${t('fluidReportedCapacity')}: ${vehicle.oil.value}`:t('fluidNoSource'),vehicle?.oil?.sources||[]),
+    fluidRow(t('fluidCoolant'),vehicle?.coolant?`${t('fluidReportedCapacity')}: ${vehicle.coolant.value}`:t('fluidNoSource'),vehicle?.coolant?.sources||[])
+  ];
+  const gearboxSelect=document.getElementById('fluidGearbox');
+  const gearboxCode=gearboxSelect.value;
+  let gearbox=null;
+  if(vehicle?.engine==='M50B20'&&gearboxCode==='manual-520i'){
+    gearbox={capacity:'1.0 L',sources:['https://www.scribd.com/doc/268460081/BMW-5-Series-520i-1992-1995'],note:t('gearboxCheckCode')};
+  }else if(vehicle?.engine==='M50B20'&&gearboxCode==='automatic'){
+    gearbox={capacity:'7.8 L (total system capacity)',sources:['https://www.scribd.com/doc/268460081/BMW-5-Series-520i-1992-1995'],note:t('gearboxCheckCode')};
+  }else if(gearboxCode&&window.E34_FLUIDS.gearboxes[gearboxCode]){
+    const selected=window.E34_FLUIDS.gearboxes[gearboxCode];
+    gearbox={capacity:selected.capacity,sources:[selected.source],note:selected.note||t('gearboxCheckCode')};
+  }
+  const gearboxName=gearboxCode==='manual-520i'?t('gearbox520Option'):gearboxCode==='automatic'?t('gearboxAutomaticOption'):window.E34_FLUIDS.gearboxes[gearboxCode]?.name||t('gearboxUnknownOption');
+  const diff=vehicle?.differential;
+  grid.innerHTML=[
+    fluidCard(t('engineOption'),engineRows),
+    fluidCard(t('gearbox'),[
+      fluidRow(t('identification'),gearboxName),
+      fluidRow(t('gearboxResult'),gearbox?gearbox.capacity:t('gearboxNoData'),gearbox?.sources||[]),
+      fluidRow(t('fluidSource'),gearbox?.note||t('gearboxCheckCode'))
+    ]),
+    fluidCard(t('differential'),[
+      fluidRow(t('differentialResult'),diff?diff.value:t('differentialNoData'),diff?.sources||[])
+    ]),
+    fluidCard(t('powerSteering'),[
+      fluidRow(t('fluidQuantity'),t('steeringResult'))
+    ])
+  ].join('');
+}
+
 function render(){
   const v=data.vehicle;
   document.getElementById('currentKm').textContent=v.km?formatKm(v.km):'—';
   document.getElementById('serviceCount').textContent=data.services.length;
-  if(document.activeElement!==fluidVinInput)fluidVinInput.value=v.vinLast7||'';
   document.getElementById('copyVinLast7').disabled=!v.vinLast7;
+  renderFluids();
   const pending=data.reminders.filter(r=>!r.done).sort((a,b)=>(Number(a.km)||Infinity)-(Number(b.km)||Infinity));
   document.getElementById('nextDue').textContent=pending.length?(pending[0].km?formatKm(pending[0].km)+' km':pending[0].date||t('toPlan')):'—';
   document.getElementById('nextDueLabel').textContent=pending.length?pending[0].title:t('noReminders');

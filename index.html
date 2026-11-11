@@ -81,19 +81,28 @@
           </details>
           <details><summary><span data-i18n="fluidsCapacities">Fluidos y capacidades</span><span>＋</span></summary>
             <form id="fluidVinForm" class="vin-lookup">
-              <label><span data-i18n="lastSevenVin">Últimos 7 caracteres del VIN</span><input name="vinLast7" type="text" inputmode="text" maxlength="7" pattern="[A-HJ-NPR-Z0-9]{7}" required autocomplete="off" placeholder="Ej. CB12345" data-i18n-placeholder="vinExample"></label>
-              <div class="vin-actions"><button class="secondary-button" type="submit" data-i18n="saveVin">Guardar VIN</button><button class="secondary-button" id="copyVinLast7" type="button" disabled data-i18n="copyVin">Copiar</button><a class="vin-realoem-link" href="https://www.realoem.com/bmw/es/select" target="_blank" rel="noopener noreferrer" data-i18n="checkRealOEM">Consultar en RealOEM ↗</a></div>
-              <p class="vin-lookup-note" data-i18n="vinLookupDisclaimer">Los últimos 7 caracteres se guardan solo en este dispositivo. Copia el VIN para introducirlo en RealOEM; la página ayuda a identificar piezas, pero no confirma por sí sola todos los fluidos. No se mostrarán valores sin documentación verificable.</p>
+              <label><span data-i18n="fullVin">VIN completo de 17 caracteres</span><input id="fluidVinInput" name="fullVin" type="text" inputmode="text" maxlength="17" pattern="[A-HJ-NPR-Z0-9]{17}" required autocomplete="off" placeholder="Ej. WBAHB51040BK12345" data-i18n-placeholder="vinExampleFull"></label>
+              <div class="vin-actions"><button class="secondary-button" type="submit" data-i18n="decodeVin">Identificar vehículo</button><button class="secondary-button" id="copyVinLast7" type="button" disabled data-i18n="copyVin">Copiar últimos 7</button><a class="vin-realoem-link" href="https://www.realoem.com/bmw/es/select" target="_blank" rel="noopener noreferrer" data-i18n="checkRealOEM">Consultar en RealOEM ↗</a></div>
+              <p class="vin-lookup-note" data-i18n="vinLookupDisclaimer">El VIN se decodifica en este dispositivo y no se envía a ningún servicio. Solo se guardan localmente el código de tipo de 4 caracteres y los últimos 7 caracteres.</p>
             </form>
-            <div class="fluid-intro"><b data-i18n="baseVehicle">Vehículo base</b><span data-i18n="fluidBaseline">520i E34 berlina · 1991 · M50B20 sin VANOS. Esta ficha no presupone caja, diferencial ni equipamiento hidráulico.</span></div>
-            <div class="fluid-grid">
-              <article class="fluid-card"><h3><span data-i18n="engineOption">Motor</span> · M50B20</h3><dl><div><dt data-i18n="lubricantCapacity">Lubricante y capacidad</dt><dd data-i18n="pendingVerification">Pendiente de contrastar</dd></div><div><dt data-i18n="specViscosity">Especificación / viscosidad</dt><dd data-i18n="pendingVerification">Pendiente de contrastar</dd></div><div><dt data-i18n="oemReference">Referencia OEM</dt><dd data-i18n="pendingVin">Pendiente de validar por VIN</dd></div></dl></article>
-              <article class="fluid-card"><h3 data-i18n="gearbox">Caja de cambios</h3><dl><div><dt data-i18n="identification">Identificación</dt><dd data-i18n="gearboxCodeMissing">Código de caja no disponible</dd></div><div><dt data-i18n="lubricantCapacity">Lubricante y capacidad</dt><dd data-i18n="gearboxDependent">Dependen de la caja instalada</dd></div><div><dt data-i18n="oemReference">Referencia OEM</dt><dd data-i18n="pendingVinGearbox">Pendiente de validar por VIN y código</dd></div></dl></article>
-              <article class="fluid-card"><h3 data-i18n="differential">Diferencial</h3><dl><div><dt data-i18n="identification">Identificación</dt><dd data-i18n="diffUnknown">Relación y tipo de autoblocante por confirmar</dd></div><div><dt data-i18n="lubricantCapacity">Lubricante y capacidad</dt><dd data-i18n="diffDependent">Dependen del diferencial instalado</dd></div><div><dt data-i18n="oemReference">Referencia OEM</dt><dd data-i18n="pendingVinMark">Pendiente de validar por VIN y marcado</dd></div></dl></article>
-              <article class="fluid-card"><h3 data-i18n="powerSteering">Dirección asistida</h3><dl><div><dt data-i18n="identification">Identificación</dt><dd data-i18n="steeringLabelUnknown">Confirmar equipo y etiqueta del depósito</dd></div><div><dt data-i18n="fluidQuantity">Fluido y cantidad</dt><dd data-i18n="notDetermined">No determinados para esta unidad</dd></div><div><dt data-i18n="oemReference">Referencia OEM</dt><dd data-i18n="pendingVin">Pendiente de validar por VIN</dd></div></dl></article>
-              <article class="fluid-card"><h3><span data-i18n="cooling">Refrigeración</span> · M50</h3><dl><div><dt data-i18n="coolantCapacity">Refrigerante y capacidad</dt><dd data-i18n="pendingVerification">Pendiente de contrastar</dd></div><div><dt data-i18n="concentrationSpec">Concentración / especificación</dt><dd data-i18n="pendingVerification">Pendiente de contrastar</dd></div><div><dt data-i18n="oemReferences">Referencias OEM</dt><dd data-i18n="pendingVinPlural">Pendientes de validar por VIN</dd></div></dl></article>
+            <div class="fluid-intro" id="fluidVehicleResult" role="status" aria-live="polite" data-i18n="fluidNoVin">Introduce el VIN completo para identificar el tipo E34 y mostrar estimaciones con fuente.</div>
+            <div class="fluid-lookup-tools">
+              <label for="fluidGearbox" data-i18n="gearboxCodeSelect">Tipo de caja (lee la etiqueta de la caja instalada)</label>
+              <select id="fluidGearbox">
+                <option value="" data-i18n="gearboxUnknownOption">Sin identificar</option>
+                <option value="manual-520i" data-i18n="gearbox520Option">520i manual · la fuente no indica el código de caja</option>
+                <option value="automatic" data-i18n="gearboxAutomaticOption">Automática · caja exacta sin identificar</option>
+                <option value="getrag-260-5" data-i18n="gearboxName2605">Getrag 260/5</option>
+                <option value="getrag-260-6" data-i18n="gearboxName2606">Getrag 260/6</option>
+                <option value="zf-s5d-310z" data-i18n="gearboxName310z">ZF S5D 310Z</option>
+                <option value="getrag-s6s-560g" data-i18n="gearboxName560g">Getrag S6S 560G</option>
+              </select>
             </div>
-            <p class="fluid-source-note" data-i18n="fluidDisclaimer">No se muestran valores estimados: los manuales enlazados son referencias generales y sus valores aún no se han contrastado con la configuración europea exacta de esta unidad. Para completarlos hacen falta el VIN, el código/etiqueta de la caja, el marcado del diferencial y la etiqueta del depósito de dirección, además de documentación BMW aplicable. La capacidad de servicio puede diferir de la capacidad total del sistema.</p>
+            <div class="fluid-grid" id="fluidGrid"></div>
+            <p class="fluid-source-note" data-i18n="fluidApproxDisclaimer">Valores orientativos transcritos de referencias secundarias; no son datos BMW de taller contrastados con este VIN. Las capacidades de refrigeración y de caja automática pueden ser capacidades totales, no cantidades de reposición en servicio. Antes de intervenir, comprueba la etiqueta real de la caja, el diferencial, el depósito y el manual de taller.</p>
+            <a class="source-link" href="https://www.bimmerarchive.org/e-code/e34.html" target="_blank" rel="noopener noreferrer" data-i18n="typeCodeSource">Tabla de códigos de producción (referencia secundaria) ↗</a>
+            <a class="source-link" href="https://bmwguide.net/bmw-e34-engine-oil-change/" target="_blank" rel="noopener noreferrer" data-i18n="bmwGuideSource">Tabla de mantenimiento E34 (referencia secundaria) ↗</a>
+            <a class="source-link" href="https://www.scribd.com/doc/268460081/BMW-5-Series-520i-1992-1995" target="_blank" rel="noopener noreferrer" data-i18n="manualScanSource">Guía de fluidos 520i (escaneo secundario) ↗</a>
             <a class="source-link" href="https://www.bmwclub.by/book/e34/Haynes%20Repair%20Manual%20-%20Bmw%20e30%2C%20e28%20%26%20e34.pdf" target="_blank" rel="noopener" data-i18n="haynesLink">Consultar Haynes E30/E28/E34 · referencia secundaria ↗</a>
             <a class="source-link" href="https://www.e34chassis.com/wp-content/uploads/2023/08/Bentley_BMW_5-Series_Service_Manual_edited_eF1x.pdf" target="_blank" rel="noopener" data-i18n="bentleyLink">Consultar Bentley BMW 5-Series · confirmar mercado y variante ↗</a>
           </details>
@@ -120,11 +129,22 @@
         <div class="panel data-panel"><h3 data-i18n="yourData">Tus datos</h3><p data-i18n="localStorageDescription">Los registros se guardan localmente en el navegador. Esta versión no sincroniza todavía entre dispositivos.</p><button class="secondary-button" id="backupBtn" data-i18n="downloadBackup">Descargar copia de seguridad JSON ↓</button><label class="import-label"><span data-i18n="restoreBackup">Restaurar copia JSON</span><input id="importFile" type="file" accept="application/json"></label></div>
         <div class="panel language-panel"><h3 data-i18n="languageSettings">Idioma de la interfaz</h3><label for="languageSelect" data-i18n="chooseLanguage">Selecciona el idioma</label><select id="languageSelect"><option value="es">Español</option><option value="en">English</option></select><p data-i18n="languageDataNote">El idioma afecta a la interfaz; los textos de tus registros se mantienen tal como los escribiste. Las unidades siguen en km.</p></div>
       </section>
+      <section class="view" id="view-tribute">
+        <div class="page-head"><div class="eyebrow" data-i18n="tributeEyebrow">HOMENAJE E34 / 10</div><h1 data-i18n="videoTitle">Anuncio BMW Serie 5 de 1988</h1><p data-i18n="videoIntro">Anuncio televisivo de época de la Serie 5 de BMW, incluido como homenaje al lanzamiento de la E34.</p></div>
+        <div class="panel tribute-panel">
+          <video class="tribute-video" controls playsinline preload="metadata">
+            <source src="./media/1988-bmw-5-series-tv-commercial.mp4" type="video/mp4">
+            <span data-i18n="videoNotAvailable">Tu navegador no puede reproducir este vídeo MP4.</span>
+          </video>
+          <p class="video-credit" data-i18n="videoCredit">Vídeo aportado por el usuario e incluido en la app para reproducirlo localmente.</p>
+        </div>
+      </section>
     </main>
-    <nav class="bottom-nav" aria-label="Navegación principal" data-i18n-aria="mainNavigation"><button class="nav-item active" data-view="garage"><span>⌂</span><span data-i18n="garage">Garaje</span></button><button class="nav-item" data-view="service"><span>▤</span><span data-i18n="serviceNav">Servicio</span></button><button class="nav-item" data-view="reminders"><span>◷</span><span data-i18n="alertsNav">Avisos</span></button><button class="nav-item" data-view="manual"><span>⌁</span><span data-i18n="manualNav">Manual</span></button><button class="nav-item" data-view="settings"><span>⚙</span><span data-i18n="vehicleSheet">Ficha</span></button></nav>
+    <nav class="bottom-nav" aria-label="Navegación principal" data-i18n-aria="mainNavigation"><button class="nav-item active" data-view="garage"><span>⌂</span><span data-i18n="garage">Garaje</span></button><button class="nav-item" data-view="service"><span>▤</span><span data-i18n="serviceNav">Servicio</span></button><button class="nav-item" data-view="reminders"><span>◷</span><span data-i18n="alertsNav">Avisos</span></button><button class="nav-item" data-view="manual"><span>⌁</span><span data-i18n="manualNav">Manual</span></button><button class="nav-item" data-view="tribute"><span>▶</span><span data-i18n="videoNav">Vídeo</span></button><button class="nav-item" data-view="settings"><span>⚙</span><span data-i18n="vehicleSheet">Ficha</span></button></nav>
   </div>
   <div id="toast" class="toast" role="status"></div>
   <script src="torques.js"></script>
+  <script src="fluids-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
