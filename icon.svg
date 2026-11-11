@@ -8,8 +8,8 @@
   <path d="M111 99h290v202L256 408 111 301z" fill="none" stroke="#ffffff22" stroke-width="3"/>
   <text x="256" y="232" fill="#f1f3f4" font-family="Arial,sans-serif" font-size="118" font-weight="900" text-anchor="middle" letter-spacing="-8">E34</text>
   <path d="M137 274h238" stroke="#71808b" stroke-width="10" stroke-linecap="round"/>
-  <path d="M137 298h79" stroke="#5aa0ca" stroke-width="18"/>
-  <path d="M216 298h80" stroke="#edf1f3" stroke-width="18"/>
-  <path d="M296 298h79" stroke="#d34b4b" stroke-width="18"/>
+  <path d="M137 298h79" stroke="#00a3e0" stroke-width="18"/>
+  <path d="M216 298h80" stroke="#003f7d" stroke-width="18"/>
+  <path d="M296 298h79" stroke="#e31837" stroke-width="18"/>
   <path d="M144 347h224" stroke="#a9b5bd" stroke-width="6" stroke-linecap="round" opacity=".8"/>
 </svg>
