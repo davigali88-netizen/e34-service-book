@@ -1,4 +1,4 @@
-# BMW E34 Service Book — v0.6
+# BMW E34 Service Book — v0.7
 
 PWA responsive para el historial y la documentación de un BMW E34.
 
@@ -7,10 +7,16 @@ PWA responsive para el historial y la documentación de un BMW E34.
 - Mejora la lectura en móviles con tipografía ampliada y tarjetas que se adaptan a dos columnas.
 - Mantiene visible el botón «Instalar» y ofrece instrucciones alternativas si el navegador no muestra el aviso nativo.
 - Resume los costes registrados por año y categoría, reutilizando el coste opcional de cada intervención.
-- Permite abrir manuales PDF en español e inglés desde archivos elegidos en el dispositivo; no los sube ni los incluye en el sitio.
+- Incluye los manuales PDF de usuario en español e inglés y el documento OBC en el sitio.
 - Permite elegir una foto propia del vehículo; se procesa y guarda solo en el almacenamiento local del navegador.
 - Mantiene los textos ya escritos en registros, el kilometraje en km y la biblioteca de pares en español.
 - Atribución de la imagen: “BMW E34 520i.jpg”, Felix Schmidt, Wikimedia Commons, CC BY-SA 3.0. Es un 520i alemán de 1992 y no necesariamente representa la unidad del usuario. La imagen original se distribuye sin modificar: https://commons.wikimedia.org/wiki/File:BMW_E34_520i.jpg
+
+## Mejoras v0.7
+- Incluye en la aplicación los manuales PDF en español e inglés y el documento de información OBC.
+- Permite guardar localmente los últimos siete caracteres válidos del VIN, copiarlos y consultar RealOEM manualmente; la app no envía el VIN ni decodifica automáticamente la configuración.
+- Mantiene pendientes las capacidades, especificaciones y referencias de fluidos hasta contrastarlas con documentación aplicable a la unidad.
+- Identifica al creador como Sr. Balloneta en el aviso de proyecto independiente.
 
 ## Mejoras v0.5
 - Sustituye el placeholder de fluidos por una ficha para el 520i E34 de 1991 con motor M50B20.
