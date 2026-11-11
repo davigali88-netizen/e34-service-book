@@ -21,6 +21,8 @@ const ES={serviceUpdated:'Intervención actualizada',serviceSaved:'Intervención
 Object.assign(ES,{date:'Fecha',currentMileage:'Kilometraje',operation:'Operación',category:'Categoría',partsReferences:'Piezas / referencias',notes:'Notas',costEuros:'Coste'});
 Object.assign(EN,{heroModel:'E34 · SALOON · 1991',torqueLanguageNote:'The interface can be switched to English; torque library descriptions remain in Spanish.',torqueCopied:'Torque copied',toPlan:'Not scheduled',photoAttribution:'BMW E34 520i (1992) · Felix Schmidt / Wikimedia Commons · CC BY-SA 3.0 ↗',genericPhotoCredit:'Reference photo: 1992 BMW 520i by Felix Schmidt (Wikimedia Commons), CC BY-SA 3.0; original, unmodified.'});
 Object.assign(ES,{appTitle:'Libro de servicio E34',brandTitle:'LIBRO DE SERVICIO',brandSub:'GARAJE BMW CLÁSICO',heroModel:'E34 · BERLINA · 1991',torqueLanguageNote:'La interfaz puede cambiar a inglés; las descripciones de la biblioteca de pares permanecen en español.',torqueCopied:'Par copiado',toPlan:'Por programar',photoAttribution:'BMW E34 520i (1992) · Felix Schmidt / Wikimedia Commons · CC BY-SA 3.0 ↗',genericPhotoCredit:'Foto de referencia: BMW 520i de 1992, de Felix Schmidt (Wikimedia Commons), CC BY-SA 3.0; original sin modificar.',application:'Aplicación',customPhotoAlt:'Foto propia de tu vehículo',mileageNotEntered:'un kilometraje aún no especificado',noPendingList:'No tienes recordatorios pendientes.',noReminders:'Sin recordatorios',noServiceEntries:'Todavía no hay intervenciones registradas.',saveService:'Guardar intervención',planConfirm:'Se añadirán {count} recordatorios usando como referencia {km} y la fecha de hoy. ¿Continuar?'});
+Object.assign(EN,{installFallback:'If no prompt appears, open your browser menu and choose Install app or Add to Home screen.',appInstalled:'App installed'});
+Object.assign(ES,{installFallback:'Si no aparece el aviso, abre el menú del navegador y elige Instalar aplicación o Añadir a pantalla de inicio.',appInstalled:'Aplicación instalada'});
 function t(key){const catalog=data.language==='en'?EN:ES;return catalog[key]||key}
 function applyLanguage(){
   const language=data.language==='en'?'en':'es';
@@ -156,7 +158,18 @@ function download(name,content,type){const a=document.createElement('a');a.href=
 document.getElementById('backupBtn').addEventListener('click',()=>download('e34-service-book-backup.json',JSON.stringify(data,null,2),'application/json'));
 document.getElementById('exportBtn').addEventListener('click',()=>{const rows=[[t('date'),t('currentMileage'),t('operation'),t('category'),t('partsReferences'),t('notes'),t('costEuros')],...data.services.map(service=>[service.date,service.km,service.title,service.category,service.parts,service.notes,service.cost])];const csv=rows.map(row=>row.map(value=>'"'+String(value??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');download('e34-service-history.csv','\ufeff'+csv,'text/csv;charset=utf-8')});
 document.getElementById('importFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const imported=JSON.parse(await file.text());if(!imported.vehicle||!Array.isArray(imported.services)||!Array.isArray(imported.reminders))throw Error('format');data={...structuredClone(initial),...imported,vehicle:{...initial.vehicle,...imported.vehicle},language:imported.language==='en'?'en':'es',favorites:Array.isArray(imported.favorites)?imported.favorites:[]};applyLanguage();save();toast(t('backupRestored'))}catch{toast(t('invalidBackup'))}e.target.value=''});
-let installPrompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;const b=document.getElementById('installBtn');b.hidden=false;b.onclick=async()=>{installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;b.hidden=true}});
+const installButton=document.getElementById('installBtn');
+let installPrompt=null;
+installButton.hidden=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+installButton.addEventListener('click',async()=>{
+  if(!installPrompt){toast(t('installFallback'));return}
+  installPrompt.prompt();
+  const choice=await installPrompt.userChoice;
+  installPrompt=null;
+  if(choice.outcome==='accepted')installButton.hidden=true;
+});
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;installButton.hidden=false});
+window.addEventListener('appinstalled',()=>{installPrompt=null;installButton.hidden=true;toast(t('appInstalled'))});
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 render();
 renderTorques();

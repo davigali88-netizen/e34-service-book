@@ -42,3 +42,6 @@
   .fluid-card dt{font-size:12px}.fluid-card dd{font-size:13px}
   .photo-panel p,.language-panel p{font-size:13px}.language-panel label{font-size:13px}.language-panel select{font-size:15px}
 }
+
+.topbar{position:relative;z-index:5}.brand{max-width:calc(100% - 100px)}.install-button{display:flex;align-items:center;gap:6px;min-height:44px;padding:8px 10px;font-size:12px;white-space:nowrap;position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:6}.install-button span:last-child{font-size:16px;line-height:1}
+@media(max-width:380px){.brand{flex:1;min-width:0;gap:8px}.brand>div:last-child{min-width:0;overflow:hidden}.brand-title{font-size:12px;letter-spacing:1.6px;white-space:nowrap}.brand-sub{font-size:8px;letter-spacing:1.5px;white-space:nowrap}.install-button{gap:4px;padding:7px 8px;font-size:11px}}
