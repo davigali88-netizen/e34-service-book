@@ -1,6 +1,17 @@
-# BMW E34 Service Book — v0.4
+# BMW E34 Service Book — v0.6
 
 PWA responsive para el historial y la documentación de un BMW E34.
+
+## Mejoras v0.6
+- Añade una identidad visual E34, foto genérica del BMW 520i y selector de idioma español/inglés para la interfaz.
+- Permite elegir una foto propia del vehículo; se procesa y guarda solo en el almacenamiento local del navegador.
+- Mantiene los textos ya escritos en registros, el kilometraje en km y la biblioteca de pares en español.
+- Atribución de la imagen: “BMW E34 520i.jpg”, Felix Schmidt, Wikimedia Commons, CC BY-SA 3.0. Es un 520i alemán de 1992 y no necesariamente representa la unidad del usuario. La imagen original se distribuye sin modificar: https://commons.wikimedia.org/wiki/File:BMW_E34_520i.jpg
+
+## Mejoras v0.5
+- Sustituye el placeholder de fluidos por una ficha para el 520i E34 de 1991 con motor M50B20.
+- Separa los datos identificados de los pendientes para motor, caja, diferencial, dirección asistida y refrigeración.
+- No publica capacidades, especificaciones ni referencias OEM sin contrastarlas con la variante y el VIN.
 
 ## Mejoras v0.4
 - Generador de plan base: crea siete recordatorios por fecha y kilometraje desde los datos actuales.
@@ -32,3 +43,9 @@ Proyecto independiente, no afiliado a BMW AG.
 ## Fuente del plan de mantenimiento
 Haynes BMW 3 & 5 Series Service and Repair Manual, sección 1·4 (calendario de mantenimiento). El manual advierte que sus intervalos son pautas de mantenimiento preventivo abreviadas respecto a los intervalos de concesionario. Aplicabilidad y especificaciones deben confirmarse para la unidad concreta.
 Fuente consultable: https://www.bmwclub.by/book/e34/Haynes%20Repair%20Manual%20-%20Bmw%20e30%2C%20e28%20%26%20e34.pdf
+
+## Ficha de fluidos
+La ficha v0.5 identifica el vehículo base como 520i E34 berlina, 1991, M50B20 sin VANOS, según la ficha técnica existente en la aplicación. Los manuales Haynes y Bentley están enlazados como referencias generales, pero sus especificaciones no se han validado contra la configuración europea concreta ni contra el VIN. Por eso se dejan pendientes las cantidades, homologaciones/viscosidades y referencias OEM. Para completar caja, diferencial y dirección hacen falta sus identificadores físicos; la capacidad de servicio no debe confundirse con la capacidad total.
+
+- Haynes BMW 3 & 5 Series Service and Repair Manual: https://www.bmwclub.by/book/e34/Haynes%20Repair%20Manual%20-%20Bmw%20e30%2C%20e28%20%26%20e34.pdf
+- Bentley BMW 5-Series Service Manual (mercado/variante por confirmar): https://www.e34chassis.com/wp-content/uploads/2023/08/Bentley_BMW_5-Series_Service_Manual_edited_eF1x.pdf
