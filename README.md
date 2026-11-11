@@ -3,7 +3,7 @@
 PWA responsive para el historial y la documentación de un BMW E34.
 
 ## Mejoras v0.6
-- Añade una identidad visual E34, foto genérica del BMW 520i y selector de idioma español/inglés para la interfaz.
+- Unifica el logo de interfaz y los iconos de instalación Android con los colores BMW Motorsport; añade una foto genérica del BMW 520i y selector español/inglés.
 - Permite elegir una foto propia del vehículo; se procesa y guarda solo en el almacenamiento local del navegador.
 - Mantiene los textos ya escritos en registros, el kilometraje en km y la biblioteca de pares en español.
 - Atribución de la imagen: “BMW E34 520i.jpg”, Felix Schmidt, Wikimedia Commons, CC BY-SA 3.0. Es un 520i alemán de 1992 y no necesariamente representa la unidad del usuario. La imagen original se distribuye sin modificar: https://commons.wikimedia.org/wiki/File:BMW_E34_520i.jpg
